@@ -1,11 +1,7 @@
 # Multiclass Emotion Classification Project 
 
-## Introduction
-We have done sentiment analysis using Naïve Bayes and Perceptron in our assignments this semester, but they were both
-binary classification tasks. The model predicts whether a tweet is positive or negative, but humans have more emotions
-than two. Since we have not done multiclass classification before, it is interesting to see how well the models can do
-on classifying detailed emotions, such as joy or surprise. Besides, as we were introduced to a list of different models
-for classification tasks, comparing their performance can be helpful for us to know more about them.
+## Abstract 
+This project compares the results of different models through binary and a multiclass classification tasks.
 
 ## Dataset
 
