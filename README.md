@@ -15,7 +15,7 @@ data using distant supervision (Saravia et al., 2018). The downloaded file was p
 through pandas for easier data processing. Table 1 below is an example of the data set. All words were separated by a
 single white space. All texts were in lower case without punctuation or number. Under each number, there are 6 texts
 corresponding to 6 different labels: joy, love, fear, surprise, anger, sadness. Only the first 14917 such sets of
-instances (i.e., 14917*6 = 89502 instances in total)were selected for further experiment for a balanced data, since the
+instances (i.e., 14917*6 = 89502 instances in total) were selected for further experiment for a balanced data, since the
 rest sets have no text for “surprise” label.
 
 |  Number  | Text                                                                                                                 | Label    |
@@ -211,6 +211,9 @@ with the development set for multiclass classification
 | Accuracy     |            |         | 0.90     | 8984     |
 | Macro avg    | 0.90       | 0.90    | 0.90     | 8984     |
 | Weighted avg | 0.90       | 0.90    | 0.90     | 8984     |
+
+Table 8: Classification report for the best configuration: Logistic Regression model, C = 0.5, bag of words features,
+multiclass classification
 
 ## Discussion
 
