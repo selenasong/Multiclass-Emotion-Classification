@@ -1,18 +1,16 @@
 # Multiclass Emotion Classification Project 
 
 ## Abstract 
-Downloaded and extracted annotated data of six emotions from an online dataset. Used three models in Scikit-learn to train and test the data – Multinomial Naïve Bayes, Logistic Regression, and Random Forest – with three different features and three values for each hyperparameter. Reported the highest accuracy of 0.89.
+Downloaded and extracted annotated data of six emotions from an online dataset. Used three models in Scikit-learn (Multinomial Naïve Bayes, Logistic Regression, and Random Forest) to train and test the data with three different features (bag of words, positive lexicon, negative lexicon) and three values for each hyperparameter (alpha, C, and n_estimators). A binary classification was also done to compare models' performances on different tasks. Reported the highest accuracy of 0.89 for multiclass classification and 0.95 for binary classification. Discussions on the result is provided at the end. 
 
 ## Dataset
-
 The dataset is downloaded from Papers With Code, specifically from CARER (Contextualized Affect Representations for
 Emotion Recognition). The authors selected a certain number of tweets from two widely used datasets and annotated the
 data using distant supervision (Saravia et al., 2018). The downloaded file was pickled and transformed into a csv
 through pandas for easier data processing. Table 1 below is an example of the data set. All words were separated by a
 single white space. All texts were in lower case without punctuation or number. Under each number, there are 6 texts
-corresponding to 6 different labels: joy, love, fear, surprise, anger, sadness. Only the first 14917 such sets of
-instances (i.e., 14917*6 = 89502 instances in total) were selected for further experiment for a balanced data, since the
-rest sets have no text for “surprise” label.
+corresponding to 6 different labels: joy, love, fear, surprise, anger, sadness. There are 14917 such sets of
+instances (i.e., 14917*6 = 89502 instances in total).
 
 |  Number  | Text                                                                                                                 | Label    |
 |----------|----------------------------------------------------------------------------------------------------------------------|----------|
@@ -26,7 +24,7 @@ rest sets have no text for “surprise” label.
 Table 1: Example instances under number 4. 6 texts in the middle correspond to distinct emotions on the right.
 
 The selected data was then copied into another csv file, with the label on the third column changed to “positive” and
-“negative.” In the csv file, “love”, “surprise”, and “joy” were replaced by “positive”, and “fear”, “sadness”, and
+“negative.” “love”, “surprise”, and “joy” were replaced by “positive”, and “fear”, “sadness”, and
 “anger” were replaced by “negative.” Table 2 below provides the example of data with two labels. Numbers and texts stay
 the same, but the labels are different from Table 1. The csv file with the six labels was used for multiclass
 classification, and the one with two labels was used for binary classification.
@@ -240,25 +238,3 @@ Regression is generally a better model for text classification than Naïve Bayes
 Since for each model there are only three values used for hyperparameter tuning, it is likely that there are higher
 accuracy scores than the one reported here that the hyperparameters used here cannot generate. If that is the case, then
 the comparisons and reason behind the findings stated above may not be true.
-
-## Conclusion
-
-Models generally perform better in binary classification than in multiclass classification. Within each task, thanks to
-the large balanced dataset, Naïve Bayes, Logistic Regression, and Random Forest all performed well judging by their
-accuracy score, with Logistic Regression performing slightly better than the other two models. As for features, bag of
-words performs significantly better than sentiment lexicon.
-
-An unexpected part of the project was the time it takes to run RandomForestClassifier. Tuning hyperparameters for this
-classifier takes more than 30 minutes if max_depth is not set to lower numbers such as 2 or 5, but the hyperparameter
-values that lead to faster results sacrifices the accuracy, so tuning for Random Forest needs extra time and
-effort.Another unexpected finding was that, since the dataset were separated differently when generating baseline
-results and final results, some accuracy scores after tuning are lower than baseline results, with the difference
-ranging from 2 to 20. Finally, DictVectorizer for customized features was hard to understand, so that part was also
-time-consuming.
-
-If more time allowed, I would not do anything above differently. Instead, I would like to see what configurations I can
-cut off in the project so I could run less tests. For the development set, I applied 54 configurations in total for a
-full comparison, but it is highly likely that only some of those are valuable.  
-
-
-
