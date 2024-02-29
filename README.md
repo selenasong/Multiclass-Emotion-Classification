@@ -1,7 +1,7 @@
 # Multiclass Emotion Classification Project 
 
 ## Abstract 
-This project compares the results of different models through binary and a multiclass classification tasks.
+Downloaded and extracted annotated data of six emotions from an online dataset. Used three models in Scikit-learn to train and test the data – Multinomial Naïve Bayes, Logistic Regression, and Random Forest – with three different features and three values for each hyperparameter. Reported the highest accuracy of 0.89.
 
 ## Dataset
 
